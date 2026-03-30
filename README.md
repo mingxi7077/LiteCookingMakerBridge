@@ -8,6 +8,8 @@
 
 LiteCookingMakerBridge is a standalone bridge plugin that writes maker attribution onto LiteCooking rewards and can optionally grant MMOCore class experience.
 
+> Non-commercial source-available. Commercial use requires prior written permission via `mingxi7707@qq.com`.
+
 ## Highlights
 
 - Tracks LiteCooking workstation sessions through reflection.
