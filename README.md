@@ -1,24 +1,30 @@
 # LiteCookingMakerBridge
 
-Standalone bridge plugin for LiteCooking precise maker attribution.
+![License](https://img.shields.io/badge/license-GPL--3.0-blue)
+![Platform](https://img.shields.io/badge/platform-Paper%201.21.x-brightgreen)
+![Dependencies](https://img.shields.io/badge/dependencies-LiteCooking%20%2B%20MMOCore-blueviolet)
+![Status](https://img.shields.io/badge/status-active-success)
 
-## What it does
-- Tracks LiteCooking workstation sessions via reflection.
-- When a session ends, opens a short "claim window" for expected reward drops.
-- On matching reward `ItemSpawnEvent`, writes maker identity:
-  - `PDC`: `litecookingmakerbridge:lc_maker_uuid`, `litecookingmakerbridge:lc_maker_name`, `litecookingmakerbridge:lc_maker_time`
-  - Lore lines from `config.yml` templates (`maker.lore-template`, `maker.time-lore-template`).
-- Optional MMOCore class exp bridge on matched rewards:
-  - configurable `per-craft` + `per-item` amounts
-  - per-recipe overrides
-  - command placeholders: `%player%`, `%player_name%`, `%uuid%`, `%recipe%`, `%amount%`, `%amount_int%`
+LiteCookingMakerBridge is a standalone bridge plugin that writes maker attribution onto LiteCooking rewards and can optionally grant MMOCore class experience.
+
+## Highlights
+
+- Tracks LiteCooking workstation sessions through reflection.
+- Opens a short claim window and matches spawned reward items back to the crafter.
+- Writes maker UUID, name, time, and lore onto the resulting item.
+- Supports optional MMOCore experience rewards with per-recipe overrides.
 
 ## Build
+
 ```powershell
-cd E:\Minecraft\12121\purpur第四版\LiteCookingMakerBridge
 .\build.ps1
 ```
 
-This compiles and copies:
-- `build/LiteCookingMakerBridge-1.0.0.jar`
-- `server/plugins/LiteCookingMakerBridge.jar`
+## Repository Scope
+
+- Source and config only.
+- Build outputs and copied server jars are excluded from Git.
+
+## License
+
+GPL-3.0
