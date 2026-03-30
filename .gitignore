@@ -1,0 +1,47 @@
+# Gradle / build artifacts
+.gradle/
+**/.gradle/
+build/
+**/build/
+target/
+**/target/
+out/
+**/out/
+bin/
+**/bin/
+
+# IDE
+.idea/
+.vscode/
+
+# Java artifacts
+*.jar
+*.war
+*.zip
+*.tar.gz
+
+# Minecraft / runtime data
+*.db
+*.sqlite
+*.log
+logs/
+deploy/
+部署包/
+
+# Caches / temp
+*.tmp
+*.bak
+**/tmp_*/
+**/.tmp*/
+tmp_*.txt
+__pycache__/
+.venv/
+
+# Compiled outputs
+*.class
+**/*.class
+
+# OS files
+.DS_Store
+Thumbs.db
+

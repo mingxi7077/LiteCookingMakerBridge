@@ -1,0 +1,74 @@
+# Session scanner interval for LiteCooking workstations (ticks)
+scan-interval-ticks: 1
+
+# How long a finished claim can wait for reward item spawns (ticks)
+claim-ttl-ticks: 200
+
+# Max distance between expected drop location and spawned item
+match-radius: 1.8
+
+# Require session to have reached the final stage before creating a claim
+require-final-stage: true
+
+# Safety cap to prevent memory growth
+max-pending-claims: 256
+
+maker:
+  # Skip items that already contain maker tag keys
+  skip-if-already-tagged: true
+  # Write lore line when maker tag is applied
+  write-lore: true
+  # Avoid adding duplicate lore line
+  avoid-duplicate-lore: true
+  # Placeholders: %player% %uuid% %recipe% %time% %epoch_ms% %epoch_seconds%
+  lore-template: "&7Maker: &f%player%"
+  # Write crafted time (epoch millis) into PDC key: lc_maker_time
+  write-time-tag: true
+  # Add an extra lore line for crafted time
+  write-time-lore: true
+  # Time display format (java.time DateTimeFormatter pattern)
+  time-format: "yyyy-MM-dd HH:mm:ss"
+  # Timezone used to display crafted time
+  time-zone: "Asia/Shanghai"
+  # Placeholders: %player% %uuid% %recipe% %time% %epoch_ms% %epoch_seconds%
+  time-lore-template: "&8Craft Time: &f%time%"
+
+# Enforce required hand item during LiteCooking MINI_GAME clicks.
+# Uses stage.game_item as matcher (typically ItemsAdder:duanzaochui for forging).
+mini-game-tool-gate:
+  # Master switch for click gating
+  enabled: true
+  # Only gate when stage.game_item has a non-empty `link`
+  require-linked-item-only: true
+
+# MMOCore main class exp bridge
+exp:
+  # Enable/disable exp bridge logic
+  enabled: true
+  # Only grant exp when the owner is online
+  require-online-player: true
+  # If false, stop after first successfully dispatched command
+  run-all-commands: false
+  # Round down amount to N decimal places
+  amount-scale: 2
+  # Ignore values below this amount
+  min-amount: 0.01
+  # Hard cap per matched reward event
+  max-amount: 20.0
+  default:
+    # Granted once per craft session (first matched reward)
+    per-craft: 1.0
+    # Additional amount per spawned reward item count
+    per-item: 0.0
+  # Placeholders: %player% %player_name% %uuid% %recipe% %amount% %amount_int%
+  command-templates:
+    - "mmocore admin experience give %player% %amount%"
+  # Optional per-recipe override (recipe name match is case-insensitive)
+  recipe-overrides: {}
+  # recipe-overrides:
+  #   "待锻造的铁锭":
+  #     per-craft: 2.0
+  #     per-item: 0.2
+
+# Enable verbose debug logs
+debug: false
