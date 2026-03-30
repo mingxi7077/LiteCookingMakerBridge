@@ -4,5 +4,6 @@ version: 1.0.1
 api-version: "1.21"
 author: Bonfire
 description: Add maker attribution and MMOCore exp bridge to LiteCooking rewards.
+website: https://github.com/mingxi7077/LiteCookingMakerBridge
 softdepend:
   - LiteCooking
